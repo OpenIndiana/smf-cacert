@@ -5,7 +5,7 @@
     <create_default_instance enabled='true'/>
     <single_instance/>
     <dependency name='fs' grouping='require_all' restart_on='none' type='service'>
-      <service_fmri value='svc:/system/filesystem/minimal:default'/>
+      <service_fmri value='svc:/system/filesystem/local:default'/>
     </dependency>
     <exec_method name='start' type='method' exec='/lib/svc/method/svc-cacert' timeout_seconds='60'/>
     <exec_method name='refresh' type='method' exec='/lib/svc/method/svc-cacert' timeout_seconds='60'/>
