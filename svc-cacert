@@ -56,22 +56,25 @@ cat >${tmpcabundle} <<EOF
 
 EOF
 
-# make /etc/certs/CA configurable by SMF
-capath=$(svcprop -p config/capath ${SMF_FMRI})
+if [ -n "${SMF_FMRI}" ]; then
+    # make /etc/certs/CA configurable by SMF
+    capath=$(svcprop -p config/capath ${SMF_FMRI})
+    # get the cabundle file name by SMF
+    cabundle=$(svcprop -p config/cabundle ${SMF_FMRI})
+    # get a openssl cert dir by SMF
+    osslcerts=$(svcprop -p config/opensslcerts ${SMF_FMRI})
+fi
+
 # if capath is not set in SMF, set a default
 if [ "x${capath}" == "x" ]; then
     capath=/etc/certs/CA
 fi
 
-# get the cabundle file name by SMF
-cabundle=$(svcprop -p config/cabundle ${SMF_FMRI})
 # if unset, set default
 if [ "x${cabundle}" == "x" ]; then
     cabundle=/etc/certs/ca-certificates.crt
 fi
 
-# get a openssl cert dir by SMF
-osslcerts=$(svcprop -p config/opensslcerts ${SMF_FMRI})
 if [ "x${osslcerts}" == "x" ]; then
     osslcerts=/etc/openssl/certs
 fi
