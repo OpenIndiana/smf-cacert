@@ -71,8 +71,9 @@ if ! [ -d ${osslcerts} ]; then
     exit 1
 fi
 
-# check if capath has a newer mtime, else do not generate new certs
-if [ ${capath} -nt ${osslcerts} ]; then
+# check if capath has a newer mtime or cabundle doesn't exist,
+# else do not generate new certs
+if [ ${capath} -nt ${osslcerts} -o ! -f ${cabundle} ]; then
     # generate a temporary new cabundle file
     tmpcabundle=$(mktemp)
 
