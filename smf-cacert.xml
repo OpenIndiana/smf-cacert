@@ -25,7 +25,7 @@
         <loctext xml:lang='C'>Root CA Certificates Installer</loctext>
       </common_name>
       <documentation>
-        <manpage title='svc-cacert' section='1M' manpath='/usr/man'/>
+        <manpage title='svc-cacert' section='8' manpath='/usr/man'/>
       </documentation>
     </template>
   </service>

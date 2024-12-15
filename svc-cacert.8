@@ -4,7 +4,7 @@
 .\" You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE or http://www.illumos.org/license/CDDL.  See the License for the specific language governing permissions and limitations under the License.
 .\" When distributing Covered Code, include this CDDL HEADER in each file and include the License file at usr/src/OPENSOLARIS.LICENSE.  If applicable, add the following below this CDDL HEADER, with the fields enclosed by brackets "[]" replaced with your own identifying information: Portions Copyright [yyyy] [name of copyright owner]
 
-.TH SVC-CACERT 1M "2 Dec 2016" "" "System Administration Commands"
+.TH SVC-CACERT 8 "15 Dec 2024" "" "System Administration Commands"
 .SH NAME
 svc-cacert \- generates Root CA Certificate entries for openssl and curl
 .SH SYNOPSIS
@@ -16,7 +16,7 @@ svc-cacert \- generates Root CA Certificate entries for openssl and curl
 .SH DESCRIPTION
 .sp
 .LP
-\fBsvc-cacert\fR will be executed during systemboot by the \fBsmf\fR(5) service 
+\fBsvc-cacert\fR will be executed during systemboot by the \fBsmf\fR(7) service 
 \fBsvc:/system/ca-certificates:default\fR, or if the administrator refreshes the service.
 The service scans for root certificates in PEM format under /etc/certs/CA and creates symbolic
 links from /etc/openssl/certs/ to the files.
@@ -54,5 +54,4 @@ svcadm refresh svc:/system/ca-certificates:default
 .SH SEE ALSO
 .sp
 .LP
-\fBsmf\fR(5), \fBsvccfg\fR(1M), \fBcurl\fR(1), \fBopenssl\fR(1openssl)
-
+\fBsmf\fR(7), \fBsvccfg\fR(8), \fBcurl\fR(1), \fBopenssl\fR(1openssl)
